@@ -1,0 +1,77 @@
+/*
+ * John Robert R.
+ */
+import java.util.*;
+public class VectorCalcFrontEnd
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in());
+        boolean go = true;
+        System.out.println("Welcome to yhe Vector Operations Program!");
+        VectorCalcBack test;
+        while (go)
+        {
+            System.out.println("Enter 1: To Add 2 Vectors");
+            System.out.println("Enter 2: To Subtract 2 Vectors");
+            System.out.println("Enter 3: To Find Magnitude of a Vector");
+            System.out.println("Enter 9: To Quit");
+            int choice = keyboard.nextInt();
+            switch (choice)
+            {
+                case 1:
+                {
+                    System.out.println("Enter your vector size: ");
+                    int c = keyboard.nextInt();
+                    if (c <= 0)
+                    {
+                        System.out.println("Invalid size");
+                        break;
+                    }
+                    test = new VectorCalcBack(c, keyboard, false);
+                    double[] added = test.add();
+                    for (int i = 0; i < added.length; i++)
+                    {
+                        System.out.println(added[i]);
+                    }
+                    break;
+                }
+                case 2:
+                {
+                    System.out.println("Enter your vector size: ");
+                    int c = keyboard.nextInt();
+                    if (c <= 0)
+                    {
+                        System.out.println("Invalid size");
+                        break;
+                    }
+                    test = new VectorCalcBack(c, keyboard, false);
+                    double[] subbed = test.subtract();
+                    for (int i = 0; i < subbed.length; i++)
+                    {
+                        System.out.println(subbed[i]);
+                    }
+                    break;
+                }
+                case 3:
+                {
+                    System.out.println("Enter your vector size: ");
+                    int c = keyboard.nextInt();
+                    if (c <= 0)
+                    {
+                        System.out.println("Invalid size");
+                        break;
+                    }
+                    test = new VectorCalcBack(c, keyboard, true);
+                    System.out.println("The magnitude of this vector is " + test.magnitude());
+                    break;
+                }
+                case 9:
+                {
+                    go = false;
+                    break;
+                }
+            }
+        }
+    }
+}
